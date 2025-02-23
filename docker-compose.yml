@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:13
+    container_name: ratpi_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ratpi_user
+      POSTGRES_PASSWORD: ratpi_password
+      POSTGRES_DB: ratpi_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./src/init_database.sql:/docker-entrypoint-initdb.d/init_database.sql
+      - ./src/data.sql:/docker-entrypoint-initdb.d/data.sql
+volumes:
+  postgres_data:
