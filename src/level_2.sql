@@ -49,6 +49,3 @@ GROUP BY stations.nom
 ORDER BY frequentation DESC;
 
 SELECT * FROM frequentation_stations LIMIT 10;
-
-
-
