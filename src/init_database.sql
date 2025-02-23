@@ -111,4 +111,3 @@ CREATE TABLE IF NOT EXISTS validations (
 
 ALTER TABLE validations ADD CONSTRAINT fk_validations_supports FOREIGN KEY (id_support) REFERENCES supports(id);
 ALTER TABLE validations ADD CONSTRAINT fk_validations_stations FOREIGN KEY (id_station) REFERENCES stations(id);
-
