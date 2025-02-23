@@ -22,6 +22,18 @@ GROUP BY nb_stations DESC;
 
 /*abonnements qui expirent à la fin de janvier 2025*/
 
-
+SELECT t.nom AS nom_tarification,
+       COUNT(*) AS nb_abonnements
+FROM abonnements a
+JOIN tarifications t ON a.id_tarification = t.id
+WHERE a.date_fin BETWEEN '2025-01-01' AND '2025-01-31'
+GROUP BY t.nom
+ORDER BY nb_abonnements ASC;
 
 /*dossiers en validation*/
+
+CREATE OR REPLACE VIEW dossiers_en_validation AS
+SELECT *
+FROM dossiers_client
+WHERE status = 'validation'
+ORDER BY date_creation;
