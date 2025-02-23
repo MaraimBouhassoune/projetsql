@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   db:
     image: postgres:13
@@ -13,6 +13,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./src/init_database.sql:/docker-entrypoint-initdb.d/init_database.sql
-      - ./src/data.sql:/docker-entrypoint-initdb.d/data.sql
+        # - ./src/data.sql:/docker-entrypoint-initdb.d/data.sql
 volumes:
   postgres_data:
