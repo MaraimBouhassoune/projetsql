@@ -21,7 +21,7 @@ JOIN lignes ON arrets.id_ligne = lignes.id
 GROUP BY stations.nom
 ORDER BY stations.nom;
 
-CREATE VIEW abonnes_par_departement AS
+CREATE OR REPLACE VIEW abonnes_par_departement AS
 SELECT adresses_client.departement AS departement,
        adresses_client.code_postal,
        COUNT(abonnements.id) AS nb_abonnes
@@ -40,7 +40,7 @@ SELECT
 FROM abonnements
 JOIN dossiers_client ON abonnements.id_dossier = dossiers_client.id;
 
-CREATE VIEW frequentation_stations AS
+CREATE OR REPLACE VIEW frequentation_stations AS
 SELECT stations.nom AS station,
        COUNT(validations.id) AS frequentation
 FROM stations

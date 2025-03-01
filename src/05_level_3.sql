@@ -29,7 +29,7 @@ JOIN tarifications ON abonnements.id_tarification = tarifications.id
 GROUP BY tarifications.nom
 ORDER BY moy_validation DESC, abonnement ASC;
 
-CREATE VIEW moy_passages_par_jour AS
+CREATE OR REPLACE VIEW moy_passages_par_jour AS
 SELECT
     TO_CHAR(date_heure_validation, 'Day') AS jour_semaine,
     COUNT(*) / 52 AS moy_passagers
@@ -38,7 +38,7 @@ WHERE date_heure_validation >= CURRENT_DATE - INTERVAL '12 months'
 GROUP BY TO_CHAR(date_heure_validation, 'Day')
 ORDER BY TO_CHAR(date_heure_validation, 'Day');
 
-CREATE VIEW taux_remplissage AS
+CREATE OR REPLACE VIEW taux_remplissage AS
 WITH trains_par_jour AS (
     SELECT
         id,

@@ -36,3 +36,5 @@ SELECT *
 FROM dossiers_client
 WHERE statut = 'validation'
 ORDER BY date_creation;
+
+SELECT * FROM dossiers_en_validation;c bo
