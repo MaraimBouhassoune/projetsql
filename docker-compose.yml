@@ -13,5 +13,9 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./src/01_init_database.sql:/docker-entrypoint-initdb.d/01_init_database.sql
       - ./src/02_data.sql:/docker-entrypoint-initdb.d/02_data.sql
+      - ./src/03_level_1.sql:/docker-entrypoint-initdb.d/03_level_1.sql
+      - ./src/04_level_2.sql:/docker-entrypoint-initdb.d/04_level_2.sql
+      - ./src/05_level_3.sql:/docker-entrypoint-initdb.d/05_level_3.sql
+      - ./src/06_level_4.sql:/docker-entrypoint-initdb.d/06_level_4.sql
 volumes:
   postgres_data:
