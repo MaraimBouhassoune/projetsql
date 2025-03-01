@@ -6,7 +6,7 @@ WHERE EXTRACT(YEAR FROM date_achat) = 2024
 GROUP BY TO_CHAR(date_achat, 'Month')
 ORDER BY TO_DATE(TO_CHAR(date_achat, 'Month'), 'Month');
 
-SELECT DISTINCT lignes.nom
+SELECT lignes.nom
 FROM horaires
 JOIN arrets ON horaires.id_arret = arrets.id
 JOIN stations ON arrets.id_station = stations.id
@@ -36,7 +36,7 @@ SELECT
 FROM validations
 WHERE date_heure_validation >= CURRENT_DATE - INTERVAL '12 months'
 GROUP BY TO_CHAR(date_heure_validation, 'Day')
-ORDER BY TO_CHAR(date_heure_validation, 'D');
+ORDER BY TO_CHAR(date_heure_validation, 'Day');
 
 CREATE VIEW taux_remplissage AS
 WITH trains_par_jour AS (
