@@ -13,12 +13,13 @@ JOIN stations AS s ON a.id_station = s.id
 GROUP BY l.nom;
 
 /*nombre de stations par moyen de transport*/
-SELECT moyen_transport,
-        COUNT(*) AS nb_stations
-FROM stations
-GROUP BY moyen_transport
-GROUP BY nb_stations DESC;
-
+SELECT l.type AS moyen_transport,
+       COUNT(DISTINCT s.id) AS nb_stations
+FROM lignes l
+JOIN arrets a ON l.id = a.id_ligne
+JOIN stations s ON a.id_station = s.id
+GROUP BY l.type
+ORDER BY nb_stations DESC;
 
 /*abonnements qui expirent à la fin de janvier 2025*/
 

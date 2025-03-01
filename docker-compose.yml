@@ -4,8 +4,8 @@ services:
     container_name: ratpi_postgres
     restart: always
     environment:
-      POSTGRES_USER: ratpi_user
-      POSTGRES_PASSWORD: ratpi_password
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
       POSTGRES_DB: ratpi_db
     ports:
       - "5432:5432"
@@ -13,5 +13,16 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./src/init_database.sql:/docker-entrypoint-initdb.d/init_database.sql
         # - ./src/data.sql:/docker-entrypoint-initdb.d/data.sql
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
 volumes:
   postgres_data:
