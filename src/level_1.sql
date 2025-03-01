@@ -1,7 +1,7 @@
 
 SELECT COUNT(*) AS nb_dossiers_incomplets
 FROM dossiers_client
-WHERE status = 'incomplet';
+WHERE statut = 'incomplet';
 
 
 SELECT l.nom AS ligne,
@@ -33,5 +33,5 @@ ORDER BY nb_abonnements ASC;
 CREATE OR REPLACE VIEW dossiers_en_validation AS
 SELECT *
 FROM dossiers_client
-WHERE status = 'validation'
+WHERE statut = 'validation'
 ORDER BY date_creation;
