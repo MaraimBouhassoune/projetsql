@@ -75,9 +75,6 @@ ORDER BY mv.max_validations DESC;
 
 /*nombre d'abonnements actifs par tranche de zone*/
 
--- Remarque : Cette requête suppose que la table dossiers_client contient une colonne "zone".
--- Et que chaque abonnement est lié à un dossier_client via une colonne id_dossier (à adapter selon votre schéma).
-
 CREATE OR REPLACE VIEW heure_affluante AS
 WITH validations_par_heure AS (
     SELECT s.nom AS nom_station,
