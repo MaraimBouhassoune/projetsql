@@ -53,9 +53,9 @@ CREATE TYPE statut_dossier_client AS ENUM ('incomplet', 'validation', 'validé',
 
 CREATE TABLE IF NOT EXISTS dossiers_client (
     id SERIAL PRIMARY KEY,
-    status statut_dossier_client,
+    statut statut_dossier_client,
     prenoms TEXT,
-    nom_de_famille TEXT,
+    nom_famille TEXT,
     date_naissance DATE,
     id_adresse_residence INTEGER,
     id_adresse_facturation INTEGER,
