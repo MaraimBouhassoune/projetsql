@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS lignes (
 
 CREATE TABLE IF NOT EXISTS arrets (
     id SERIAL PRIMARY KEY,
-    id_station INTEGER NOT NULL,
+    id_station INTEGER,
     id_ligne INTEGER NOT NULL
 );
 
@@ -30,7 +30,7 @@ ALTER TABLE horaires ADD CONSTRAINT fk_horaires_arrets FOREIGN KEY (id_arret) RE
 
 CREATE TABLE IF NOT EXISTS supports (
     id SERIAL PRIMARY KEY,
-    identifiant VARCHAR(12) NOT NULL,
+    identifiant VARCHAR(13) NOT NULL,
     date_achat TIMESTAMP NOT NULL);
 CREATE TABLE IF NOT EXISTS abonnements (
     id SERIAL PRIMARY KEY,
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS tickets (
     date_achat TIMESTAMP NOT NULL,
     date_expiration TIMESTAMP NOT NULL,
     prix_unitaire_centimes INTEGER NOT NULL,
-    id_station INTEGER NOT NULL,
+    id_station INTEGER,
     date_heure_validation TIMESTAMP);
 ALTER TABLE tickets ADD CONSTRAINT fk_tickets_supports FOREIGN KEY (id_support) REFERENCES supports(id);
 ALTER TABLE tickets ADD CONSTRAINT fk_tickets_stations FOREIGN KEY (id_station) REFERENCES stations(id);
@@ -91,7 +91,7 @@ ALTER TABLE tickets ADD CONSTRAINT fk_tickets_stations FOREIGN KEY (id_station) 
 CREATE TABLE IF NOT EXISTS validations (
     id SERIAL PRIMARY KEY,
     id_support INTEGER NOT NULL,
-    id_station INTEGER NOT NULL,
-    date_heure_validation TIMESTAMP NOT NULL);
+    id_station INTEGER,
+    date_heure_validation TIMESTAMP);
 ALTER TABLE validations ADD CONSTRAINT fk_validations_supports FOREIGN KEY (id_support) REFERENCES supports(id);
 ALTER TABLE validations ADD CONSTRAINT fk_validations_stations FOREIGN KEY (id_station) REFERENCES stations(id);
