@@ -12,14 +12,32 @@ Ouvrez un terminal et exécutez :
 git clone https://github.com/MaraimBouhassoune/projetsql
 
 sudo apt update
-sudo apt install postgresql-client
+### 2. Mettre à jour les paquets et installer le client PostgreSQL
 
-2. Lancer l'environnement Docker
+```bash
+### 2.
+sudo apt install postgresql-client
+```
+
+### 3. Lancer l'environnement Docker
 Utilisez Docker Compose pour démarrer le container :
 
+```bash
 docker-compose up -d
+```
 
-3. Connexion à la Base de Données
+### 3. Connexion à la Base de Données
 Pour vous connecter à la base de données ratpi_db, utilisez la commande suivante (le mot de passe est root) :
 
+```
 psql -h localhost -U root -d ratpi_db
+```
+```
+
+### 3. Connexion à la Base de Données
+
+Pour vous connecter à la base de données ratpi_db, utilisez la commande suivante (le mot de passe est root) :
+
+```bash
+psql -h localhost -U root -d ratpi_db
+```
