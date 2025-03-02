@@ -34,11 +34,3 @@ Pour vous connecter à la base de données ratpi_db, utilisez la commande suivan
 psql -h localhost -U root -d ratpi_db
 ```
 ```
-
-### 3. Connexion à la Base de Données
-
-Pour vous connecter à la base de données ratpi_db, utilisez la commande suivante (le mot de passe est root) :
-
-```bash
-psql -h localhost -U root -d ratpi_db
-```
