@@ -12,6 +12,7 @@ Ouvrez un terminal et exécutez :
 git clone https://github.com/MaraimBouhassoune/projetsql
 
 sudo apt update
+```
 ### 2. Mettre à jour les paquets et installer le client PostgreSQL
 
 ```bash
